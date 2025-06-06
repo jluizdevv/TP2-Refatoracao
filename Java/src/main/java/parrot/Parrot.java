@@ -15,42 +15,53 @@ public class Parrot {
     }
 
     public double getSpeed() {
-        return switch (type) {
-            case EUROPEAN -> europeanSpeed();
-            case AFRICAN -> africanSpeed();
-            case NORWEGIAN_BLUE -> norwegianBlueSpeed();
-        };
-    }
-
-    private double europeanSpeed() {
-        return getBaseSpeed();
-    }
-
-    private double africanSpeed() {
-        return Math.max(0, getBaseSpeed() - getLoadFactor() * numberOfCoconuts);
-    }
-
-    private double norwegianBlueSpeed() {
-        return isNailed ? 0 : calculateSpeedBasedOnVoltage();
+        switch (type) {
+            case EUROPEAN -> {
+                double baseSpeed = getBaseSpeed();
+                return baseSpeed;
+            }
+            case AFRICAN -> {
+                double baseSpeed = getBaseSpeed();
+                double loadFactor = getLoadFactor();
+                double coconutLoad = loadFactor * numberOfCoconuts;
+                double speed = baseSpeed - coconutLoad;
+                double minimumSpeed = 0;
+                return Math.max(minimumSpeed, speed);
+            }
+            case NORWEGIAN_BLUE -> {
+                if (isNailed) {
+                    return 0;
+                }
+                double speedBasedOnVoltage = calculateSpeedBasedOnVoltage();
+                return speedBasedOnVoltage;
+            }
+            default -> throw new IllegalArgumentException("Unknown parrot type");
+        }
     }
 
     private double calculateSpeedBasedOnVoltage() {
-        return Math.min(24.0, voltage * getBaseSpeed());
-    }
-
-    private double getLoadFactor() {
-        return 9.0;
-    }
-
-    private double getBaseSpeed() {
-        return 12.0;
+        double baseSpeed = getBaseSpeed();
+        double maxSpeed = 24.0;
+        double speed = voltage * baseSpeed;
+        return Math.min(maxSpeed, speed);
     }
 
     public String getCry() {
-        return switch (type) {
-            case EUROPEAN -> "Sqoork!";
-            case AFRICAN -> "Sqaark!";
-            case NORWEGIAN_BLUE -> voltage > 0 ? "Bzzzzzz" : "...";
-        };
+        switch (type) {
+            case EUROPEAN -> {
+                String cry = "Sqoork!";
+                return cry;
+            }
+            case AFRICAN -> {
+                String cry = "Sqaark!";
+                return cry;
+            }
+            case NORWEGIAN_BLUE -> {
+                boolean hasVoltage = voltage > 0;
+                String cry = hasVoltage ? "Bzzzzzz" : "...";
+                return cry;
+            }
+            default -> throw new IllegalArgumentException("Unknown parrot type");
+        }
     }
-}
+
