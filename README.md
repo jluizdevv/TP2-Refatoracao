@@ -1,21 +1,27 @@
-_Support this and all my katas via [Patreon](https://www.patreon.com/EmilyBache)_
+🦜 Parrot Refactoring Kata
+Este projeto é baseado no Parrot Refactoring Kata, que simula comportamentos de diferentes tipos de papagaios. O objetivo foi refatorar o código original para torná-lo mais organizado, coeso e fácil de manter.
 
-Parrot Refactoring Kata
-=======================
+🧾 Descrição do Projeto Original
+A classe Parrot original continha lógicas específicas para diferentes tipos de papagaios (Europeu, Africano, Azul Norueguês), com muitos if e switch, violando o princípio da responsabilidade única (SRP).
 
-Can you spot any code smells in this code? I'll give you a clue - a spot of Pol(l)ymorphism should improve matters!
+🔧 Melhorias Realizadas
+Criação da interface ParrotBehavior para encapsular o comportamento dos papagaios.
 
-Refactor this code, take small steps, run the tests often. See how small and beautiful and polymorphic you can make it.
+Novas classes específicas: EuropeanParrotBehavior, AfricanParrotBehavior, NorwegianBlueParrotBehavior.
 
-I made a [video explaining this kata](https://youtu.be/UxNEHKg_2eA), and videos with worked solutions:
+Classe ParrotStatus para armazenar o estado específico de cada papagaio.
 
-* [in C#](https://youtu.be/IvFX8Ivit1k)
-* [in Java](https://youtu.be/7IT6c8wwHs4)
-* [in Python](https://youtu.be/pO_5DQ3vDtc)
+Factory ParrotBehaviorFactory para instanciar o comportamento correto.
 
-There is also a Guided Learning Hour using this exercise: [Everyday Design Improvements in OO Code](https://youtu.be/NCEWAqEFPic)
+Classe Parrot agora delega para ParrotBehavior os métodos getSpeed() e getCry().
 
-Acknowlegements
----------------
+💡 Justificativas Técnicas
+Aplicação dos princípios SRP e OCP (Aberto para extensão, fechado para modificação).
 
-This code is heavily inspired by one of the examples in Martin Fowler's book "Refactoring". It's a classic, and if it's not on your bookshelf already I suggest you treat yourself to a copy!
+Redução do acoplamento e aumento da coesão.
+
+Código mais modular, testável e pronto para extensões futuras.
+
+✅ Testes
+Todos os testes foram mantidos e estão passando, garantindo que o comportamento original foi preservado após a refatoração.
+
