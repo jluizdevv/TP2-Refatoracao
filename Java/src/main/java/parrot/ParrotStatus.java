@@ -3,12 +3,12 @@ package parrot;
 public class ParrotStatus {
     private final int numberOfCoconuts;
     private final double voltage;
-    private final boolean isNailed;
+    private final boolean nailed;
 
-    public ParrotStatus(int numberOfCoconuts, double voltage, boolean isNailed) {
+    public ParrotStatus(int numberOfCoconuts, double voltage, boolean nailed) {
         this.numberOfCoconuts = numberOfCoconuts;
         this.voltage = voltage;
-        this.isNailed = isNailed;
+        this.nailed = nailed;
     }
 
     public int getNumberOfCoconuts() {
@@ -20,6 +20,6 @@ public class ParrotStatus {
     }
 
     public boolean isNailed() {
-        return isNailed;
+        return nailed;
     }
 }
