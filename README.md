@@ -25,3 +25,12 @@ Código mais modular, testável e pronto para extensões futuras.
 ✅ Testes
 Todos os testes foram mantidos e estão passando, garantindo que o comportamento original foi preservado após a refatoração.
 
+
+📘 Relatório de Refatoração
+No projeto, percebi que a classe Parrot estava acumulando muitas responsabilidades, o que deixava o código confuso e difícil de manter. Por isso, dividi os comportamentos específicos de cada tipo de papagaio em classes separadas, deixando tudo mais organizado.
+
+Criei uma fábrica para cuidar da criação desses comportamentos, facilitando a inclusão de novos tipos no futuro sem mudar o código existente.
+
+Tive um pouco de trabalho para ajustar os testes e garantir que a lógica dos papagaios, principalmente do Norwegian Blue, continuasse funcionando corretamente.
+
+Com essa experiência, aprendi como separar responsabilidades ajuda a manter o código mais claro e fácil de entender, além de mostrar a importância dos testes para garantir que nada quebre durante mudanças.
